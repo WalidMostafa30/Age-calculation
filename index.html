@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Age Calculator</title>
+  </head>
+  <body>
+    <main>
+      <header>Age Calculator</header>
+
+      <section>
+        <!-- inputs -->
+
+        <h1>Enter your Birthday</h1>
+        <form>
+          <div class="inputs">
+            <div class="inputs__input">
+              <label for="Year">Year</label>
+              <input
+                type="text"
+                id="Year"
+                placeholder="yyyy"
+                maxlength="4"
+                required
+              />
+            </div>
+
+            <div class="inputs__input">
+              <label for="Month">Month</label>
+              <input
+                type="text"
+                id="Month"
+                placeholder="mm"
+                maxlength="2"
+                required
+              />
+            </div>
+
+            <div class="inputs__input">
+              <label for="Day">Day</label>
+              <input
+                type="text"
+                id="Day"
+                placeholder="dd"
+                maxlength="2"
+                required
+              />
+            </div>
+          </div>
+
+          <button class="submit-btn">Submit</button>
+        </form>
+
+        <!-- result -->
+        <div class="result">
+          <h1>You lived for:</h1>
+
+          <div class="result__boxs">
+            <div class="result__box Year">
+              <span>0</span>
+              <p>Year</p>
+            </div>
+
+            <div class="result__box Month">
+              <span>0</span>
+              <p>Month</p>
+            </div>
+
+            <div class="result__box Day">
+              <span>0</span>
+              <p>Day</p>
+            </div>
+          </div>
+
+          <p class="next-birthday"></p>
+          <button class="try-another-btn">Try another !</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>
