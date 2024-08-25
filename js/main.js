@@ -86,17 +86,27 @@ function logicCode() {
 
 formAge.addEventListener("submit", (e) => {
   e.preventDefault();
-  logicCode();
+  if (Y1.value.length !== 4) {
+    alert(`year must be 4 character`);
+  } else if (Y1.value > Y2) {
+    alert(`year must be less than or equal to ${Y2}`);
+  } else if (M1.value.length > 2) {
+    alert(`month must be 1 or 2 character`);
+  } else if (M1.value > 12) {
+    alert(`month must be less than or equal to 12`);
+  } else if (D1.value.length > 2) {
+    alert(`day must be 1 or 2 character`);
+  } else if (D1.value > 31) {
+    alert(`day must be less than or equal to 31`);
+  } else if (Y1.value == Y2 && M1.value > M2) {
+    alert(`month must be less than or equal to ${M2}`);
+  } else if (Y1.value == Y2 && M1.value == M2 && D1.value > D2) {
+    alert(`day must be less than or equal to ${D2}`);
+  } else {
+    logicCode();
+  }
 });
 
 // ##############
 
-tryBtn.addEventListener("click", () => {
-  result.classList.remove("open");
-  Y1.value = "";
-  M1.value = "";
-  D1.value = "";
-  resultYear.textContent = 0;
-  resultMonth.textContent = 0;
-  resultDay.textContent = 0;
-});
+tryBtn.onclick = () => window.location.reload();
