@@ -14,25 +14,16 @@ input::-webkit-inner-spin-button {
 }
 
 body {
-  background-image: linear-gradient(180deg, #a700ff, black);
+  background-color: darkslategray;
   min-height: 100vh;
   font-family: sans-serif;
 }
 header {
   text-align: center;
-  font-size: 50px;
   background-color: black;
   box-shadow: 0px 0px 8px black;
   color: white;
   padding: 15px;
-  border-end-start-radius: 40px;
-  border-end-end-radius: 40px;
-
-  @media (max-width: 768px) {
-    font-size: 40px;
-    border-end-start-radius: 25px;
-    border-end-end-radius: 25px;
-  }
 }
 section {
   padding-top: 60px;
@@ -49,7 +40,7 @@ section {
     align-items: center;
     justify-content: center;
     gap: 20px;
-    background-color: rgba(255, 255, 255, 0.556);
+    background-color: #ffffff36;
     width: fit-content;
     margin: 20px auto 0;
     padding: 20px;
