@@ -18,14 +18,17 @@ body {
   min-height: 100vh;
   font-family: sans-serif;
 }
+
 header {
   text-align: center;
   background-color: black;
   box-shadow: 0px 0px 8px black;
   color: white;
-  padding: 15px;
+  padding: 10px;
 }
+
 section {
+  padding: 10px;
   padding-top: 60px;
 
   h1 {
@@ -35,36 +38,35 @@ section {
   }
 
   form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+    text-align: center;
     background-color: #ffffff36;
-    width: fit-content;
-    margin: 20px auto 0;
-    padding: 20px;
-    border-radius: 20px;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 15px;
+    width: 400px;
+    box-shadow: -2px 2px 4px 0px #00000078;
+
+    @media (max-width: 500px) {
+      width: 100%;
+    }
   }
 
   .inputs {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
-    align-items: center;
+    gap: 15px;
   }
 
   .inputs__input {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     background-color: black;
     box-shadow: 0px 0px 4px 0px black;
     border-radius: 10px;
+    width: calc(100% / 3 - 10px);
 
     input {
-      width: 90px;
+      width: 100%;
       font-size: 24px;
       padding: 10px;
       border-radius: 10px;
@@ -73,7 +75,7 @@ section {
       text-align: center;
 
       &::placeholder {
-        font-size: 16px;
+        font-size: 18px;
       }
     }
 
@@ -85,7 +87,7 @@ section {
   }
 
   .submit-btn {
-    width: fit-content;
+    margin-top: 15px;
     padding: 10px 20px;
     border-radius: 5px;
     border: none;
@@ -97,8 +99,14 @@ section {
     transition: 0.3s;
 
     &:hover {
-      transform: scale(1.05);
+      transform: scale(1.03);
     }
+  }
+
+  .error__msg {
+    margin-top: 15px;
+    color: var(--main-color);
+    display: none;
   }
 
   /* result */
@@ -107,13 +115,14 @@ section {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100dvh;
     z-index: 100;
     background-color: rgb(0 0 0 / 86%);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 10px;
     gap: 20px;
     transform: translateX(100%);
     opacity: 0;
@@ -138,7 +147,6 @@ section {
     }
 
     .try-another-btn {
-      width: fit-content;
       padding: 10px 20px;
       border-radius: 5px;
       border: none;
@@ -150,7 +158,7 @@ section {
       transition: 0.3s;
 
       &:hover {
-        transform: scale(1.05);
+        transform: scale(1.03);
       }
     }
   }
@@ -169,8 +177,8 @@ section {
     justify-content: center;
 
     span {
-      width: 100px;
-      height: 100px;
+      width: 90px;
+      height: 90px;
       font-size: 36px;
       font-weight: bold;
       border-radius: 50%;

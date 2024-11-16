@@ -11,6 +11,7 @@ let formAge = document.querySelector("form");
 let result = document.querySelector(".result");
 let nextBirthDayMsg = document.querySelector(".next-birthday");
 let tryBtn = document.querySelector(".try-another-btn");
+let errorMsg = document.querySelector(".error__msg");
 
 // ###############
 
@@ -31,6 +32,18 @@ function counter(el, goal) {
     }
   }, 2000 / goal);
 }
+
+Y1.addEventListener("input", () => {
+  Y1.value = Y1.value.slice(0, 4);
+});
+
+M1.addEventListener("input", () => {
+  M1.value = M1.value.slice(0, 2);
+});
+
+D1.addEventListener("input", () => {
+  D1.value = D1.value.slice(0, 2);
+});
 
 // ###############
 
@@ -59,26 +72,25 @@ function logicCode() {
 
   // next BirthDay code
 
-  let nextd = D1.value;
-  let nextm = M1.value;
+  let nextDay = D1.value;
+  let nextMonth = M1.value;
 
-  if (nextd < D2) {
-    nextd = +nextd + Months[M2 - 1];
-    nextm = +nextm - 1;
+  if (nextDay < D2) {
+    nextDay = +nextDay + Months[M2 - 1];
+    nextMonth = +nextMonth - 1;
   }
 
-  if (nextm < M2) {
-    nextm = +nextm + 12;
+  if (nextMonth < M2) {
+    nextMonth = +nextMonth + 12;
   }
 
-  let nextBirthDay = nextd - D2;
-  let nextBirthMonth = nextm - M2;
+  let nextBirthDay = nextDay - D2;
+  let nextBirthMonth = nextMonth - M2;
 
   result.classList.add("open");
   nextBirthDayMsg.innerHTML = `Your Next Birthday in <span>${nextBirthMonth}</span> Months and <span>${nextBirthDay}</span> Days`;
   if (nextBirthDay == 0 && nextBirthMonth == 0) {
-    nextBirthDayMsg.innerHTML =
-      "Your Birthday is Today !! \n Happy Birthday 🎉🎂";
+    nextBirthDayMsg.innerHTML = "Your Birthday is Today !! Happy Birthday 🎉🎂";
   }
 }
 
@@ -86,23 +98,34 @@ function logicCode() {
 
 formAge.addEventListener("submit", (e) => {
   e.preventDefault();
-  if (Y1.value.length !== 4) {
-    alert(`year must be 4 character`);
+
+  let error = "";
+
+  if (Y1.value.length === 0 || M1.value.length === 0 || D1.value.length === 0) {
+    error = "Make sure you enter Year, Month, and Day.";
+  } else if (Y1.value.length !== 4) {
+    error = "Year must be 4 characters.";
   } else if (Y1.value > Y2) {
-    alert(`year must be less than or equal to ${Y2}`);
-  } else if (M1.value.length > 2) {
-    alert(`month must be 1 or 2 character`);
+    error = `Year must be less than or equal to ${Y2}.`;
+  } else if (M1.value < 1) {
+    error = "Month can't be equal to 0.";
   } else if (M1.value > 12) {
-    alert(`month must be less than or equal to 12`);
-  } else if (D1.value.length > 2) {
-    alert(`day must be 1 or 2 character`);
+    error = "Month must be less than or equal to 12.";
+  } else if (D1.value < 1) {
+    error = "Day can't be equal to 0.";
   } else if (D1.value > 31) {
-    alert(`day must be less than or equal to 31`);
+    error = "Day must be less than or equal to 31.";
   } else if (Y1.value == Y2 && M1.value > M2) {
-    alert(`month must be less than or equal to ${M2}`);
+    error = `Month must be less than or equal to ${M2}.`;
   } else if (Y1.value == Y2 && M1.value == M2 && D1.value > D2) {
-    alert(`day must be less than or equal to ${D2}`);
+    error = `Day must be less than or equal to ${D2}.`;
+  }
+
+  if (error.length !== 0) {
+    errorMsg.style.display = "block";
+    errorMsg.innerHTML = error;
   } else {
+    errorMsg.style.display = "none";
     logicCode();
   }
 });

@@ -12,46 +12,28 @@
 
       <section>
         <!-- inputs -->
-
         <h1>Enter your Birthday</h1>
         <form>
           <div class="inputs">
             <div class="inputs__input">
               <label for="Year">Year</label>
-              <input
-                type="number"
-                id="Year"
-                placeholder="yyyy"
-                maxlength="4"
-                required
-                minlength="4"
-              />
+              <input type="number" id="Year" placeholder="yyyy" />
             </div>
 
             <div class="inputs__input">
               <label for="Month">Month</label>
-              <input
-                type="number"
-                id="Month"
-                placeholder="mm"
-                maxlength="2"
-                required
-              />
+              <input type="number" id="Month" placeholder="mm" />
             </div>
 
             <div class="inputs__input">
               <label for="Day">Day</label>
-              <input
-                type="number"
-                id="Day"
-                placeholder="dd"
-                maxlength="2"
-                required
-              />
+              <input type="number" id="Day" placeholder="dd" />
             </div>
           </div>
 
           <button class="submit-btn">Calculate</button>
+
+          <p class="error__msg"></p>
         </form>
 
         <!-- result -->
